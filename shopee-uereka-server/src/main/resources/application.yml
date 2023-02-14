@@ -1,9 +1,5 @@
-spring:
-  application:
-    name: internet-banking-api-gateway
-
 server:
-  port: 8092
+  port: 8081
 
 eureka:
   client:
@@ -11,4 +7,3 @@ eureka:
       defaultZone: http://localhost:8081/eureka
     fetch-registry: true
     register-with-eureka: true
-  
