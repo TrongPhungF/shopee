@@ -3,9 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/shopee-account-service/shopee-account-service.iml" filepath="$PROJECT_DIR$/shopee-account-service/shopee-account-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/shopee-uereka-server/shopee-eureka-server.iml" filepath="$PROJECT_DIR$/shopee-uereka-server/shopee-eureka-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/shopee-gateway-service/shopee-gateway-service.iml" filepath="$PROJECT_DIR$/shopee-gateway-service/shopee-gateway-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/shopee-product-service/shopee-product-service.iml" filepath="$PROJECT_DIR$/shopee-product-service/shopee-product-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shopee-eureka-server/shopee-uereka-server.iml" filepath="$PROJECT_DIR$/shopee-eureka-server/shopee-uereka-server.iml" />
     </modules>
   </component>
 </project>
