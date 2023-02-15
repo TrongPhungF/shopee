@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/shopee-account-service/pom.xml" />
+        <option value="$PROJECT_DIR$/shopee-gateway-service/pom.xml" />
+        <option value="$PROJECT_DIR$/shopee-product-service/pom.xml" />
+        <option value="$PROJECT_DIR$/shopee-uereka-server/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" />
+</project>
