@@ -1,7 +1,7 @@
 package com.org.shopeeproductservice.entities;
 
 import java.io.Serializable;
-import java.util.Map;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,7 +32,7 @@ public class Product implements Serializable {
 	@Column(name = "product_name")
 	private String name;
 
-	@Column(name = "product_desc", nullable = true, columnDefinition = "nvarchar")
+	@Column(name = "product_desc", nullable = true)
 	private String desc;
 
 	@Column(name = "product_quanitity", nullable = true)
