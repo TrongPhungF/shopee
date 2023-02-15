@@ -1,6 +1,7 @@
-package com.org.accountservice.entities;
+package com.org.shopeeproductservice.dtos;
 
 import java.io.Serializable;
+import java.util.Map;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,28 +13,24 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "`user`")
-public class User implements Serializable {
+public class ProductDTO {
 
-	private static final long serialVersionUID = 1L;
 
-	@Column(name = "user_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Id
 	private Integer id;
 
-	@Column(name = "user_name", nullable = false)
-	private String userName;
+	private String name;
 
-	@Column(name = "password", nullable = true)
-	private String password;
+	private String desc;
 
+	private Integer quanitity;
+
+	private Double price;
+
+	private String urlImg;
 
 }
