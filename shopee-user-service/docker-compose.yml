@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+
+  users:
+    image: shopee/shopee-user-service:latest
+    mem_limit: 700m
+    ports:
+      - "9001:9001"
+    networks:
+      - shopee-network
+
+  products:
+    image: shopee/shopee-product-service:latest
+    mem_limit: 700m
+    ports:
+      - "9002:9002"
+    networks:
+      - shopee-network
+
+  orders:
+      image: shopee/shopee-order-service:latest
+      mem_limit: 700m
+      ports:
+        - "9003:9003"
+      networks:
+        - shopee-network
+
+networks:
+  shopee-network:

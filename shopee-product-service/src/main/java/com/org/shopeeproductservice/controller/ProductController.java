@@ -17,7 +17,7 @@ import com.org.shopeeproductservice.dtos.ProductDTO;
 import com.org.shopeeproductservice.service.ProductService;
 
 @RestController
-@RequestMapping(value = "/api/v1/product")
+@RequestMapping(value = "/api/v1/products")
 public class ProductController {
 	
 	@Autowired
@@ -31,13 +31,11 @@ public class ProductController {
 
 	@GetMapping
 	public List<ProductDTO> findAll() {
-		
 		return productService.findAll();
 	}
 
 	@PostMapping
 	public ProductDTO save(@RequestBody ProductDTO productDTO) {
-
 		return productService.save(productDTO);
 	}
 

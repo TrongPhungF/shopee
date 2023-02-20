@@ -84,10 +84,20 @@
 										<circle cx="7.5" cy="4.5" fill="none" r="3.8" stroke-miterlimit="10"></circle>
 										<path d="m1.5 14.2c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="none" stroke-linecap="round" stroke-miterlimit="10"></path></g></svg>
 								</div>
+<<<<<<< HEAD
 
 							</div>
 							<div class="navbar__username">
 								<a href="/user/account/profile" style="color: white;"><span ></span></a>
+=======
+<!--								<img class="shopee-avatar__img" th:src="${#authentication.principal.currentUser.pathAvatar}">-->
+
+							</div>
+							<div class="navbar__username">
+								<a href="/user/account/profile" style="color: white;">
+<!--									<span sec:authentication="principal.currentUser.userName"></span>-->
+								</a>
+>>>>>>> truong
 							</div>
 						</div>
 					</div>
@@ -163,7 +173,11 @@
 								<circle cx="19.7" cy="23" r="2.2" stroke="none">
 								</circle>
 							</svg> <th:block sec:authorize="isAuthenticated()">
+<<<<<<< HEAD
 								<div sec:if="${principal.currentUser.cartCounter > 0}" class="shopee-cart-number-badge" sec:authentication="principal.currentUser.cartCounter"></div>
+=======
+<!--								<div sec:if="${principal.currentUser.cartCounter > 0}" class="shopee-cart-number-badge" sec:authentication="principal.currentUser.cartCounter"></div>-->
+>>>>>>> truong
 							</th:block> </a>
 					</div>
 				</div>
@@ -171,6 +185,10 @@
 			</div>
 		</div>
 	</div>
+<<<<<<< HEAD
 	<script th:src="@{/header.js}"></script>
+=======
+	<script th:src="@{/fragments/header.js}"></script>
+>>>>>>> truong
 	<script th:src="@{/home/js/search-product.js}"></script>
 </div>
