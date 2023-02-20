@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.org.shopeeproductservice.converter.ProductConvert;
 import com.org.shopeeproductservice.dtos.ProductDTO;
-import com.org.shopeeproductservice.entities.Product;
+import com.org.shopeeproductservice.model.Product;
 import com.org.shopeeproductservice.repository.ProductRepository;
 import com.org.shopeeproductservice.service.ProductService;
 
