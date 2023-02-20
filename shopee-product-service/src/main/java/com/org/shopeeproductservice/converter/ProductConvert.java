@@ -1,13 +1,11 @@
 package com.org.shopeeproductservice.converter;
 
-import java.util.Optional;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.org.shopeeproductservice.dtos.ProductDTO;
-import com.org.shopeeproductservice.entities.Product;
+import com.org.shopeeproductservice.model.Product;
 
 
 @Component
