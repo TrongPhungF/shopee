@@ -10,6 +10,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import com.org.accountservice.entities.User;
 import com.org.accountservice.repositories.UserRepository;
 
+
+@EnableEurekaClient
 @SpringBootApplication
 @EnableJpaAuditing
 public class ShopeeAccountServiceApplication implements CommandLineRunner {
