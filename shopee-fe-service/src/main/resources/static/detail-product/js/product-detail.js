@@ -1,40 +1,43 @@
 function isNumberKey(e) {
-	var charCode = (e.which) ? e.which : e.keyCode;
-	return !(charCode > 31 && (charCode < 48 || charCode > 57));
+    var charCode = (e.which) ? e.which : e.keyCode;
+    return !(charCode > 31 && (charCode < 48 || charCode > 57));
 }
+
 function maxvalue() {
-	let amount = $('#amount').val();
-	if (amount >= product.quanitity) {
-		$('#amount').val(product.quanitity);
-	}
-	else if (amount <= 1) {
-		$('#amount').val(1);
-	}
+    let amount = $('#amount').val();
+    if (amount >= product.quanitity) {
+        $('#amount').val(product.quanitity);
+    } else if (amount <= 1) {
+        $('#amount').val(1);
+    }
 }
+
 function reduceAmount() {
-	let amount = $('#amount').val();
+    let amount = $('#amount').val();
 
-	let reduce = amount - 1
-	if (reduce <= 1) {
-		reduce = 1
-	}
-	$('#amount').empty()
-	$('#amount').val(reduce)
+    let reduce = amount - 1
+    if (reduce <= 1) {
+        reduce = 1
+    }
+    $('#amount').empty()
+    $('#amount').val(reduce)
 }
+
 function raiseAmount() {
-	let amount = $('#amount').val();
+    let amount = $('#amount').val();
 
-	let raise = parseInt(amount) + 1
+    let raise = parseInt(amount) + 1
 
-	if (raise >= product.quanitity) {
-		raise = product.quanitity
-	}
-	$('#amount').empty()
-	$('#amount').val(raise)
+    if (raise >= product.quanitity) {
+        raise = product.quanitity
+    }
+    $('#amount').empty()
+    $('#amount').val(raise)
 }
+
 function onmouse(url) {
-	$('._1KdnTb').empty();
-	$('._1KdnTb').append(`
+    $('._1KdnTb').empty();
+    $('._1KdnTb').append(`
 			    <div class="_2fbO7Q" >
                           <div class="vpbtQ5" style="display: none;">
                                 <div class="shopee-image-placeholder _3LM2cY"><svg
@@ -57,9 +60,10 @@ function onmouse(url) {
                  </div>
 	`)
 }
+
 function onleave(url) {
-	$('._1KdnTb').empty();
-	$('._1KdnTb').append(`
+    $('._1KdnTb').empty();
+    $('._1KdnTb').append(`
 			   <div class="_2fbO7Q" >
                    <div class="vpbtQ5" style="display: none;">
                          <div class="shopee-image-placeholder _3LM2cY"><svg
@@ -82,86 +86,99 @@ function onleave(url) {
              </div>
 	`)
 }
+
 let currentIndex
+
 function clickImgCMT(index, id_cmt) {
-	let position = 0
-	if (index != 0) {
-		position = index * -150
-	}
+    let position = 0
+    if (index != 0) {
+        position = index * -150
+    }
 
 
-	$('#img' + id_cmt + ' .rating-media-list__image-wrapper').each(function() {
-		if ($(this).attr('class').includes('rating-media-list__image-wrapper--active')) {
-			$(this).removeClass('rating-media-list__image-wrapper--active').addClass('rating-media-list__image-wrapper--inactive')
-			$('#zoom' + id_cmt).removeClass('rating-media-list__zoomed-image--active')
-			$('#zoom' + id_cmt).find('.rating-media-list-image-carousel').css({ "transition": "all 0ms ease 0s;", "width": "0px" })
-			$('#i' + index + id_cmt).addClass('rating-media-list__image-wrapper--inactive').removeClass('rating-media-list__image-wrapper--active')
-		}
-	})
-	if (index == currentIndex) return
-	currentIndex = index
-	if ($('#i' + index + id_cmt).attr('class').includes('rating-media-list__image-wrapper--inactive')) {
-		$('#i' + index + id_cmt).removeClass('rating-media-list__image-wrapper--inactive').addClass('rating-media-list__image-wrapper--active')
-		$('#zoom' + id_cmt).find('.rating-media-list-image-carousel').css({ "transition": "all 500ms ease 0s;", "width": "150px" })
-		$('#ul' + id_cmt).css("margin-left", position + "px")
-		$('#zoom' + id_cmt).addClass('rating-media-list__zoomed-image--active')
+    $('#img' + id_cmt + ' .rating-media-list__image-wrapper').each(function () {
+        if ($(this).attr('class').includes('rating-media-list__image-wrapper--active')) {
+            $(this).removeClass('rating-media-list__image-wrapper--active').addClass('rating-media-list__image-wrapper--inactive')
+            $('#zoom' + id_cmt).removeClass('rating-media-list__zoomed-image--active')
+            $('#zoom' + id_cmt).find('.rating-media-list-image-carousel').css({
+                "transition": "all 0ms ease 0s;",
+                "width": "0px"
+            })
+            $('#i' + index + id_cmt).addClass('rating-media-list__image-wrapper--inactive').removeClass('rating-media-list__image-wrapper--active')
+        }
+    })
+    if (index == currentIndex) return
+    currentIndex = index
+    if ($('#i' + index + id_cmt).attr('class').includes('rating-media-list__image-wrapper--inactive')) {
+        $('#i' + index + id_cmt).removeClass('rating-media-list__image-wrapper--inactive').addClass('rating-media-list__image-wrapper--active')
+        $('#zoom' + id_cmt).find('.rating-media-list-image-carousel').css({
+            "transition": "all 500ms ease 0s;",
+            "width": "150px"
+        })
+        $('#ul' + id_cmt).css("margin-left", position + "px")
+        $('#zoom' + id_cmt).addClass('rating-media-list__zoomed-image--active')
 
-	} else {
-		$('#zoom' + id_cmt).removeClass('rating-media-list__zoomed-image--active')
-		$('#i' + index + id_cmt).addClass('rating-media-list__image-wrapper--inactive').removeClass('rating-media-list__image-wrapper--active')
-		$('#zoom' + id_cmt).find('.rating-media-list-image-carousel').css({ "transition": "all 0ms ease 0s;", "width": "0px" })
-		$('#ul' + id_cmt).css("margin-left", position + "px")
-	}
-	onBlerImg()
+    } else {
+        $('#zoom' + id_cmt).removeClass('rating-media-list__zoomed-image--active')
+        $('#i' + index + id_cmt).addClass('rating-media-list__image-wrapper--inactive').removeClass('rating-media-list__image-wrapper--active')
+        $('#zoom' + id_cmt).find('.rating-media-list-image-carousel').css({
+            "transition": "all 0ms ease 0s;",
+            "width": "0px"
+        })
+        $('#ul' + id_cmt).css("margin-left", position + "px")
+    }
+    onBlerImg()
 }
+
 let stara
 let totalPage
+
 function callAjaxCMT(idPro, numStar) {
-	stara = numStar
-	let url
-	$('.product-rating-overview__filter').each(function() {
-		$(this).removeClass('product-rating-overview__filter--active')
-	})
+    stara = numStar
+    let url
+    $('.product-rating-overview__filter').each(function () {
+        $(this).removeClass('product-rating-overview__filter--active')
+    })
 
-	if (numStar == 0) {
-		$('#allCmt').addClass('product-rating-overview__filter--active')
-		url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro
-	}
-	if (numStar == 1) {
-		$('#star1').addClass('product-rating-overview__filter--active')
-		url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&star=" + numStar
-	}
-	if (numStar == 2) {
-		$('#star2').addClass('product-rating-overview__filter--active')
-		url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&star=" + numStar
-	}
-	if (numStar == 3) {
-		$('#star3').addClass('product-rating-overview__filter--active')
-		url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&star=" + numStar
-	}
-	if (numStar == 4) {
-		$('#star4').addClass('product-rating-overview__filter--active')
-		url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&star=" + numStar
-	}
-	if (numStar == 5) {
-		$('#star5').addClass('product-rating-overview__filter--active')
-		url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&star=" + numStar
-	}
-	if (numStar == 6) {
-		$('#onlyCmt').addClass('product-rating-overview__filter--active')
-		url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&haveComment=YES"
-	}
+    if (numStar == 0) {
+        $('#allCmt').addClass('product-rating-overview__filter--active')
+        url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro
+    }
+    if (numStar == 1) {
+        $('#star1').addClass('product-rating-overview__filter--active')
+        url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&star=" + numStar
+    }
+    if (numStar == 2) {
+        $('#star2').addClass('product-rating-overview__filter--active')
+        url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&star=" + numStar
+    }
+    if (numStar == 3) {
+        $('#star3').addClass('product-rating-overview__filter--active')
+        url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&star=" + numStar
+    }
+    if (numStar == 4) {
+        $('#star4').addClass('product-rating-overview__filter--active')
+        url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&star=" + numStar
+    }
+    if (numStar == 5) {
+        $('#star5').addClass('product-rating-overview__filter--active')
+        url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&star=" + numStar
+    }
+    if (numStar == 6) {
+        $('#onlyCmt').addClass('product-rating-overview__filter--active')
+        url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&haveComment=YES"
+    }
 
-	$.ajax({
-		type: "GET",
-		url: url,
-		success: function(data) {
-			totalPage = data.totalPages
-			$('.shopee-product-comment-list').empty()
-			$('.shopee-page-controller.product-ratings__page-controller').empty()
-			let content = data.content
-			content.forEach(cmt => {
-				$('.shopee-product-comment-list').append(` 
+    $.ajax({
+        type: "GET",
+        url: url,
+        success: function (data) {
+            totalPage = data.totalPages
+            $('.shopee-product-comment-list').empty()
+            $('.shopee-page-controller.product-ratings__page-controller').empty()
+            let content = data.content
+            content.forEach(cmt => {
+                $('.shopee-product-comment-list').append(` 
 	    				<div class="shopee-product-rating">
 					   <a class="shopee-product-rating__avatar" href="/shop/715792936">
 					      <div class="shopee-avatar">
@@ -213,23 +230,23 @@ function callAjaxCMT(idPro, numStar) {
 					</div>	
 	    								
 	    		`)
-				for (let i = 0; i < 5; i++) {
-					if (i < cmt.star) {
-						$('#cmt' + cmt.id).append(` 
+                for (let i = 0; i < 5; i++) {
+                    if (i < cmt.star) {
+                        $('#cmt' + cmt.id).append(` 
 	    						<svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon icon-rating-solid--active icon-rating-solid">
 									<polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon>
 								</svg>
 	    				`)
-					} else {
-						$('#cmt' + cmt.id).append(` 
+                    } else {
+                        $('#cmt' + cmt.id).append(` 
 	    					  <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon icon-rating">
 					               <polygon fill="none" points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon>
 					            </svg>	
 	    				`)
-					}
-				}
-				cmt.commentResources.forEach((img, index) => {
-					$('#img' + cmt.id).append(`
+                    }
+                }
+                cmt.commentResources.forEach((img, index) => {
+                    $('#img' + cmt.id).append(`
     				<div class="rating-media-list__image-wrapper rating-media-list__image-wrapper--inactive" id="i${index}${cmt.id}">
 	                  <div class="shopee-rating-media-list-image__wrapper">
 	                     <div class="shopee-rating-media-list-image__place-holder">
@@ -252,13 +269,13 @@ function callAjaxCMT(idPro, numStar) {
 	               </div>
 
 	    			`)
-					$('#ul' + cmt.id).append(` 
+                    $('#ul' + cmt.id).append(` 
 	    				<li class="rating-media-list-image-carousel__item rating-media-list-image-carousel__item--fluid" style="padding: 0px 0.625rem;"><img width="135" height="132" class="rating-media-list__zoomed-image-item" src="${img.path}"></li>
 	    			`)
-				})
-			})
-			if (!data.first) {
-				$('.shopee-page-controller.product-ratings__page-controller').append(` <button
+                })
+            })
+            if (!data.first) {
+                $('.shopee-page-controller.product-ratings__page-controller').append(` <button
 					class="shopee-icon-button shopee-icon-button--left" id="prevPage" onclick="handerPaging(${data.number},${idPro})"><svg
 						enable-background="new 0 0 11 11"
 						viewBox="0 0 11 11" x="0" y="0"
@@ -269,18 +286,17 @@ function callAjaxCMT(idPro, numStar) {
 							</path>
 						</g>
 					</svg></button>`)
-			}
-			for (let i = 0; i < data.totalPages; i++) {
-				if (i == 0) {
-					$('.shopee-page-controller.product-ratings__page-controller').append(`<button class="shopee-button-solid shopee-button-solid--primary" onclick="handerPaging(${i + 1},${idPro})">${i + 1}</button> `)
-				}
-				else {
-					$('.shopee-page-controller.product-ratings__page-controller').append(`<button class="shopee-button-no-outline" onclick="handerPaging(${i + 1},${idPro})">${i + 1}</button>`)
-				}
-			}
-			let positionPage = parseInt($('.shopee-button-solid.shopee-button-solid--primary').text())
-			if (!data.last) {
-				$('.shopee-page-controller.product-ratings__page-controller').append(` 
+            }
+            for (let i = 0; i < data.totalPages; i++) {
+                if (i == 0) {
+                    $('.shopee-page-controller.product-ratings__page-controller').append(`<button class="shopee-button-solid shopee-button-solid--primary" onclick="handerPaging(${i + 1},${idPro})">${i + 1}</button> `)
+                } else {
+                    $('.shopee-page-controller.product-ratings__page-controller').append(`<button class="shopee-button-no-outline" onclick="handerPaging(${i + 1},${idPro})">${i + 1}</button>`)
+                }
+            }
+            let positionPage = parseInt($('.shopee-button-solid.shopee-button-solid--primary').text())
+            if (!data.last) {
+                $('.shopee-page-controller.product-ratings__page-controller').append(` 
     			<button
 					class="shopee-icon-button shopee-icon-button--right " onclick="handerPaging(${positionPage + 1},${idPro})"><svg
 						enable-background="new 0 0 11 11"
@@ -291,57 +307,58 @@ function callAjaxCMT(idPro, numStar) {
 						</path>
 					</svg></button>
 	    	`)
-			}
+            }
 
-		},
-		error: function(error) {
+        },
+        error: function (error) {
 
-		}
-	})
+        }
+    })
 
 }
+
 function handerPaging(page, idPro) {
-	let numStar = stara
-	event.preventDefault()
-	let url
-	if (numStar == 0) {
-		$('#allCmt').addClass('product-rating-overview__filter--active')
-		url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&page=" + page
-	}
-	if (numStar == 1) {
-		$('#star1').addClass('product-rating-overview__filter--active')
-		url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&star=" + numStar + "&page=" + page
-	}
-	if (numStar == 2) {
-		$('#star2').addClass('product-rating-overview__filter--active')
-		url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&star=" + numStar + "&page=" + page
-	}
-	if (numStar == 3) {
-		$('#star3').addClass('product-rating-overview__filter--active')
-		url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&star=" + numStar + "&page=" + page
-	}
-	if (numStar == 4) {
-		$('#star4').addClass('product-rating-overview__filter--active')
-		url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&star=" + numStar + "&page=" + page
-	}
-	if (numStar == 5) {
-		$('#star5').addClass('product-rating-overview__filter--active')
-		url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&star=" + numStar + "&page=" + page
-	}
-	if (numStar == 6) {
-		$('#onlyCmt').addClass('product-rating-overview__filter--active')
-		url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&haveComment=YES" + "&page=" + page
-	}
+    let numStar = stara
+    event.preventDefault()
+    let url
+    if (numStar == 0) {
+        $('#allCmt').addClass('product-rating-overview__filter--active')
+        url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&page=" + page
+    }
+    if (numStar == 1) {
+        $('#star1').addClass('product-rating-overview__filter--active')
+        url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&star=" + numStar + "&page=" + page
+    }
+    if (numStar == 2) {
+        $('#star2').addClass('product-rating-overview__filter--active')
+        url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&star=" + numStar + "&page=" + page
+    }
+    if (numStar == 3) {
+        $('#star3').addClass('product-rating-overview__filter--active')
+        url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&star=" + numStar + "&page=" + page
+    }
+    if (numStar == 4) {
+        $('#star4').addClass('product-rating-overview__filter--active')
+        url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&star=" + numStar + "&page=" + page
+    }
+    if (numStar == 5) {
+        $('#star5').addClass('product-rating-overview__filter--active')
+        url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&star=" + numStar + "&page=" + page
+    }
+    if (numStar == 6) {
+        $('#onlyCmt').addClass('product-rating-overview__filter--active')
+        url = "http://localhost:8000/api/v1/comments/inDetailProduct?idProduct=" + idPro + "&haveComment=YES" + "&page=" + page
+    }
 
-	$.ajax({
-		type: "GET",
-		url: url,
-		success: function(data) {
-			$('.shopee-product-comment-list').empty()
-			let content = data.content
+    $.ajax({
+        type: "GET",
+        url: url,
+        success: function (data) {
+            $('.shopee-product-comment-list').empty()
+            let content = data.content
 
-			content.forEach(cmt => {
-				$('.shopee-product-comment-list').append(` 
+            content.forEach(cmt => {
+                $('.shopee-product-comment-list').append(` 
 	    				<div class="shopee-product-rating">
 					   <a class="shopee-product-rating__avatar" href="/shop/715792936">
 					      <div class="shopee-avatar">
@@ -393,23 +410,23 @@ function handerPaging(page, idPro) {
 					</div>	
 	    								
 	    		`)
-				for (let i = 0; i < 5; i++) {
-					if (i < cmt.star) {
-						$('#cmt' + cmt.id).append(` 
+                for (let i = 0; i < 5; i++) {
+                    if (i < cmt.star) {
+                        $('#cmt' + cmt.id).append(` 
 	    						<svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon icon-rating-solid--active icon-rating-solid">
 									<polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon>
 								</svg>
 	    				`)
-					} else {
-						$('#cmt' + cmt.id).append(` 
+                    } else {
+                        $('#cmt' + cmt.id).append(` 
 	    					  <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon icon-rating">
 					               <polygon fill="none" points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon>
 					            </svg>	
 	    				`)
-					}
-				}
-				cmt.commentResources.forEach((img, index) => {
-					$('#img' + cmt.id).append(`
+                    }
+                }
+                cmt.commentResources.forEach((img, index) => {
+                    $('#img' + cmt.id).append(`
     				<div class="rating-media-list__image-wrapper rating-media-list__image-wrapper--inactive" id="i${index}${cmt.id}">
 	                  <div class="shopee-rating-media-list-image__wrapper">
 	                     <div class="shopee-rating-media-list-image__place-holder">
@@ -432,14 +449,14 @@ function handerPaging(page, idPro) {
 	               </div>
 
 	    			`)
-					$('#ul' + cmt.id).append(` 
+                    $('#ul' + cmt.id).append(` 
 	    				<li class="rating-media-list-image-carousel__item rating-media-list-image-carousel__item--fluid" style="padding: 0px 0.625rem;"><img width="135" height="132" class="rating-media-list__zoomed-image-item" src="${img.path}"></li>
 	    			`)
-				})
-			})
-			$('.shopee-page-controller.product-ratings__page-controller').empty()
-			if (!data.first) {
-				$('.shopee-page-controller.product-ratings__page-controller').append(` <button
+                })
+            })
+            $('.shopee-page-controller.product-ratings__page-controller').empty()
+            if (!data.first) {
+                $('.shopee-page-controller.product-ratings__page-controller').append(` <button
 					class="shopee-icon-button shopee-icon-button--left" onclick="handerPaging(${data.number},${idPro})"><svg
 						enable-background="new 0 0 11 11"
 						viewBox="0 0 11 11" x="0" y="0"
@@ -450,19 +467,18 @@ function handerPaging(page, idPro) {
 							</path>
 						</g>
 					</svg></button>`)
-			}
-			for (let i = 0; i < data.totalPages; i++) {
-				if (i == data.number) {
-					$('.shopee-page-controller.product-ratings__page-controller').append(`<button class="shopee-button-solid shopee-button-solid--primary" onclick="handerPaging(${i + 1},${idPro})">${i + 1}</button> `)
-				}
-				else {
-					$('.shopee-page-controller.product-ratings__page-controller').append(`<button class="shopee-button-no-outline" onclick="handerPaging(${i + 1},${idPro})">${i + 1}</button>`)
-				}
-			}
-			let positionPage = parseInt($('.shopee-button-solid.shopee-button-solid--primary').text())
+            }
+            for (let i = 0; i < data.totalPages; i++) {
+                if (i == data.number) {
+                    $('.shopee-page-controller.product-ratings__page-controller').append(`<button class="shopee-button-solid shopee-button-solid--primary" onclick="handerPaging(${i + 1},${idPro})">${i + 1}</button> `)
+                } else {
+                    $('.shopee-page-controller.product-ratings__page-controller').append(`<button class="shopee-button-no-outline" onclick="handerPaging(${i + 1},${idPro})">${i + 1}</button>`)
+                }
+            }
+            let positionPage = parseInt($('.shopee-button-solid.shopee-button-solid--primary').text())
 
-			if (!data.last) {
-				$('.shopee-page-controller.product-ratings__page-controller').append(` 
+            if (!data.last) {
+                $('.shopee-page-controller.product-ratings__page-controller').append(` 
     			<button
 					class="shopee-icon-button shopee-icon-button--right " onclick="handerPaging(${positionPage + 1},${idPro})"><svg
 						enable-background="new 0 0 11 11"
@@ -473,43 +489,46 @@ function handerPaging(page, idPro) {
 						</path>
 					</svg></button>
 	    	`)
-			}
-			scrollInView()
-		},
-		error: function(error) {
+            }
+            scrollInView()
+        },
+        error: function (error) {
 
-		}
-	})
+        }
+    })
 
 }
+
 function onBlerImg() {
-	$(".rating-media-list-carousel-arrow").mouseenter(function() {
-		$(".rating-media-list-carousel-arrow").removeClass("rating-media-list-carousel-arrow--hint")
-	});
-	$(".rating-media-list-carousel-arrow").mouseleave(function() {
-		$(".rating-media-list-carousel-arrow").addClass("rating-media-list-carousel-arrow--hint")
-	});
+    $(".rating-media-list-carousel-arrow").mouseenter(function () {
+        $(".rating-media-list-carousel-arrow").removeClass("rating-media-list-carousel-arrow--hint")
+    });
+    $(".rating-media-list-carousel-arrow").mouseleave(function () {
+        $(".rating-media-list-carousel-arrow").addClass("rating-media-list-carousel-arrow--hint")
+    });
 
 }
+
 function scrollInView() {
-	$('#myScroll')[0].scrollIntoView({
-		behavior: "smooth", // or "auto" or "instant"
-		block: "start" // or "end"
-	});
+    $('#myScroll')[0].scrollIntoView({
+        behavior: "smooth", // or "auto" or "instant"
+        block: "start" // or "end"
+    });
 }
-$(document).ready(function() {
 
-	//load cmt
-	callAjaxCMT(product.id, 0)
-	//load catagory 
-	let temp = { ...categoryBreadcrumb };
-	let categories = [];
-	let currentCate = temp;
-	while (currentCate != null) {
-		categories.push(currentCate);
-		currentCate = currentCate.categoryParent;
-	}
-	$('#breadcrumb').append(`
+$(document).ready(function () {
+
+    //load cmt
+    callAjaxCMT(product.id, 0)
+    //load catagory
+    let temp = {...categoryBreadcrumb};
+    let categories = [];
+    let currentCate = temp;
+    while (currentCate != null) {
+        categories.push(currentCate);
+        currentCate = currentCate.categoryParent;
+    }
+    $('#breadcrumb').append(`
 		 <a class="CyVtI7"
             href="/">Shopee</a>
             <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11"
@@ -519,13 +538,13 @@ $(document).ready(function() {
             </path>
       </svg>	
 	`)
-	$('#cate-brecumb').append(`
+    $('#cate-brecumb').append(`
 			<a class="CyVtI7 _2yC5g9" href="/">Shopee</a>
 		      <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon _2ON4et icon-arrow-right">
 		      <path d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path></svg>
 `)
-	for (let i = categories.length - 1; i >= 0; i--) {
-		$('#breadcrumb').append(`
+    for (let i = categories.length - 1; i >= 0; i--) {
+        $('#breadcrumb').append(`
 		<a class="CyVtI7" href="category?id=${categories[i].id}">${categories[i].name}</a><svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0"
                 class="shopee-svg-icon _2ON4et icon-arrow-right">
                 <path
@@ -533,20 +552,20 @@ $(document).ready(function() {
                 </path>
           </svg>	
 		`)
-		$('#cate-brecumb').append(`
+        $('#cate-brecumb').append(`
 				  <a class="CyVtI7 _2yC5g9" href="category?id=${categories[i].id}">${categories[i].name}</a><svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon _2ON4et icon-arrow-right">
 		            <path d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path></svg>                                      
 		`)
-	}
-	$('#breadcrumb').append(`
+    }
+    $('#breadcrumb').append(`
 			 <span class="_3frqjk">${product.name}</span>
 		`)
-	// load star 
-	let star = product.avgStar.toFixed()
-	$('.product-rating-overview__rating-score').text(star)
-	for (let i = 0; i < 5; i++) {
-		if (i < star) {
-			$('#stars').append(`
+    // load star
+    let star = product.avgStar.toFixed()
+    $('.product-rating-overview__rating-score').text(star)
+    for (let i = 0; i < 5; i++) {
+        if (i < star) {
+            $('#stars').append(`
 						 <div class="shopee-rating-stars__star-wrapper">
                               <div class="shopee-rating-stars__lit"
                                     style="width: 100%;"><svg
@@ -570,7 +589,7 @@ $(document).ready(function() {
                               </svg>
                         </div>
 				`);
-			$('.product-rating-overview .shopee-rating-stars__stars').append(` 
+            $('.product-rating-overview .shopee-rating-stars__stars').append(` 
 						<div class="shopee-rating-stars__star-wrapper">
 							<div class="shopee-rating-stars__lit" style="width: 100%;"><svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon shopee-rating-stars__primary-star icon-rating-solid">
 									<polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
@@ -581,12 +600,11 @@ $(document).ready(function() {
 							</svg>
 						</div>
 				`)
-		}
-		else {
-			$('#stars').append(`
+        } else {
+            $('#stars').append(`
 						 <div class="shopee-rating-stars__star-wrapper"><div class="shopee-rating-stars__lit" style="width: 5.88235%;"><svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon shopee-rating-stars__primary-star icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg></div><svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon shopee-rating-stars__hollow-star icon-rating"><polygon fill="none" points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg></div>
 				`);
-			$('.product-rating-overview .shopee-rating-stars__stars').append(` 
+            $('.product-rating-overview .shopee-rating-stars__stars').append(` 
 						<div class="shopee-rating-stars__star-wrapper">
 							<div class="shopee-rating-stars__lit" style="width: 100%;">
 							<svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon shopee-rating-stars__hollow-star icon-rating"><polygon fill="none" points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg></div><svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon shopee-rating-stars__hollow-star icon-rating">
@@ -595,17 +613,17 @@ $(document).ready(function() {
 							</svg>
 						</div>
 				`)
-		}
-	}
+        }
+    }
 
-	//load star for cmt
-	$.ajax({
-		type: "GET",
-		url: "http://localhost:8000/api/v1/comments/totalStar?idProduct=" + product.id,
-		success: function(data) {
-			console.log(data)
-			let numCmt = data.Star1 + data.Star2 + data.Star3 + data.Star4 + data.Star5
-			$('.product-rating-overview__filters').append(` 
+    //load star for cmt
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8000/api/v1/comments/totalStar?idProduct=" + product.id,
+        success: function (data) {
+            console.log(data)
+            let numCmt = data.Star1 + data.Star2 + data.Star3 + data.Star4 + data.Star5
+            $('.product-rating-overview__filters').append(` 
 	    			<div id="allCmt" class="product-rating-overview__filter product-rating-overview__filter--active product-rating-overview__filter--all" onclick="callAjaxCMT(${product.id},0)">
 	    			tất cả</div>
 	    			<div id="star5" class="product-rating-overview__filter" onclick="callAjaxCMT(${product.id},5)">5 Sao (${data.Star5})</div>
@@ -617,31 +635,30 @@ $(document).ready(function() {
 					Có Bình luận (${numCmt})
 				</div>
 	    	`)
-		},
-		error: function(error) {
+        },
+        error: function (error) {
 
-		}
-	})
-	//load price
-	let priceDiscount = product.price - (product.salePercent * product.price) / 100
-	if (product.salePercent == 0) {
-		$('#price').append(` <div class="flex items-center">
+        }
+    })
+    //load price
+    let priceDiscount = product.price - (product.salePercent * product.price) / 100
+    if (product.salePercent == 0) {
+        $('#price').append(` <div class="flex items-center">
                               <div class="_2Shl1j" >đ${numberWithCommas(product.price)}</div>
                         </div> `)
-	}
-	else {
-		$('#price').append(`
+    } else {
+        $('#price').append(`
 				 <div class="_2yjfFH" >${numberWithCommas(product.price)}</div>
                     <div class="flex items-center">
                           <div class="_2Shl1j" >₫${numberWithCommas(priceDiscount, 3, 'COMMA')}</div>
                           <div class="_3PlIlX">${product.salePercent}% giảm</div>
                     </div>
 		 `)
-	}
-	//load img
-	for (const [key, value] of Object.entries(product.imageProduct)) {
-		if (key.includes('pathImage01')) {
-			$('._1KdnTb').append(`
+    }
+    //load img
+    for (const [key, value] of Object.entries(product.imageProduct)) {
+        if (key.includes('pathImage01')) {
+            $('._1KdnTb').append(`
 				   <div class="_2fbO7Q" >
                           <div class="vpbtQ5" style="display: none;">
                                 <div class="shopee-image-placeholder _3LM2cY"><svg
@@ -663,9 +680,8 @@ $(document).ready(function() {
                           <div class="_3sHeKp"></div>
                     </div>
 				`)
-		}
-		else if (key.includes('pathImage') || key.includes('pathVideo')) {
-			$('.xK9doz').append(`
+        } else if (key.includes('pathImage') || key.includes('pathVideo')) {
+            $('.xK9doz').append(`
 						      <div class="jgvTec" onmouseenter="onmouse('${value}')"  onmouseleave="onleave(product.imageProduct.pathImage01)">
                                   <div class="k1LVKF">
                                         <div class="_1OPdfl">
@@ -678,21 +694,21 @@ $(document).ready(function() {
                             </div> 
 				 `)
 
-		}
+        }
 
-	}
+    }
 
-	const pro = {
-		slug: product.slug,
-		price: product.price,
-		url: product.imageProduct.pathImage01
-	}
-	let listPro = JSON.parse(window.localStorage.getItem('products')) || []
-	listPro.push(pro)
-	window.localStorage.setItem('products', JSON.stringify(listPro));
+    const pro = {
+        slug: product.slug,
+        price: product.price,
+        url: product.imageProduct.pathImage01
+    }
+    let listPro = JSON.parse(window.localStorage.getItem('products')) || []
+    listPro.push(pro)
+    window.localStorage.setItem('products', JSON.stringify(listPro));
 
 });
 
 function numberWithCommas(x) {
-	return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 }

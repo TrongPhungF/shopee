@@ -12,14 +12,12 @@ const handleCarouseProduct = () => {
 
         if (translateProduct - 90 <= indexMax) {
             $("#btn-carousel-next").css('visibility', 'hidden')
-        }
-        else {
+        } else {
             $("#btn-carousel-next").css('visibility', 'visible')
         }
         if (translateProduct - 90 >= -90) {
             $("#btn-carousel-prev").css('visibility', 'hidden')
-        }
-        else {
+        } else {
             $("#btn-carousel-prev").css('visibility', 'visible')
         }
     });
@@ -29,14 +27,12 @@ const handleCarouseProduct = () => {
         $("#ul-item-list").css("transform", "translate(" + translateProduct + "%, 0px)");
         if (translateProduct - 90 <= indexMax) {
             $("#btn-carousel-next").css('visibility', 'hidden')
-        }
-        else {
+        } else {
             $("#btn-carousel-next").css('visibility', 'visible')
         }
         if (translateProduct - 90 >= -90) {
             $("#btn-carousel-prev").css('visibility', 'hidden')
-        }
-        else {
+        } else {
             $("#btn-carousel-prev").css('visibility', 'visible')
         }
     });
