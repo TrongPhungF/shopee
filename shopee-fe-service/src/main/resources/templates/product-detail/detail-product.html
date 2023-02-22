@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
+
 <html dir="ltr" lang="vi" xmlns:th="www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
 
 <head>
     <link href="http://res.cloudinary.com/doy8x8549/image/upload/v1662707324/k2mcfu72r3p7tkfejay6.png" rel="icon">
@@ -153,6 +155,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="_3sHeKp"><img th:src="${product.urlImg}" width="100%" height="100%"></div>
+
                                             </div>
                                         </div>
                                         <div class="xK9doz">
@@ -350,7 +353,9 @@
                                                                                                         aria-disabled="false">L&lt;68KG</button></div>
                                                                                       </div> -->
                                                         <div class="flex items-center _283ldj">
+
                                                             <form th:action="@{/cart}"  th:method="post">
+
                                                             <div class="_34CHXV">Số lượng</div>
                                                             <div class="flex items-center">
                                                                 <div style="margin-right: 15px;">
@@ -365,18 +370,21 @@
                                                                                         points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
                                                                                 </polygon>
                                                                             </svg>
-                                                                        </button>
+
 
                                                                         <input type="hidden" th:value="${product.id}" th:name="id">
                                                                         <input type="hidden" th:value="${product.name}" th:name="name">
                                                                         <input type="hidden" th:value="${product.price}" th:name="price">
                                                                         <input type="hidden" th:value="${product.urlImg}" th:name="urlImg">
+
                                                                         <input
                                                                                 aria-valuenow="1" class="_1MGNbJ _1eS5m1"
                                                                                 id="amount" oninput="maxvalue()"
                                                                                 onkeypress="return isNumberKey(event)" role="spinbutton"
                                                                                 type="text"
+
                                                                                 th:value="1" th:name="quantity">
+
                                                                         <button
                                                                                 class="_1MGNbJ"
                                                                                 onclick="raiseAmount()">
@@ -431,9 +439,11 @@
                                                         <span>thêm vào giỏ hàng</span></button>
                                                     <button
                                                             aria-disabled="false" class="btn btn-solid-primary btn--l _3f7_YI"
+
                                                             id="btn-buy-now" type="submit">Mua ngay
                                                     </button>
                                                     </form>
+
                                                 </div>
                                             </div>
                                         </div>

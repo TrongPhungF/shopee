@@ -27,6 +27,7 @@ public class ProductController {
         ModelAndView model = new ModelAndView("product-detail/detail-product.html");
         model.addObject("product",productDTO6);
        // model.addObject("productCustomize",productCustomize);
+
         return model;
     }
 }
