@@ -1,22 +1,21 @@
-                                                            
 //let product = [];
-function callAjaxProductRandom(){
-	$.ajax({
-		 type: "GET",
-		 url: "http://localhost:8000/api/v1/home/random",
-		 success: function(data) {
-	//		 product = data;
-			 layoutProductRandom(data)
-		 },
-		 error: function() {
-			 
-		 }
-		 })
+function callAjaxProductRandom() {
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8000/api/v1/home/random",
+        success: function (data) {
+            //		 product = data;
+            layoutProductRandom(data)
+        },
+        error: function () {
+
+        }
+    })
 }
 
-const layoutProductRandom =(data)=>{
-	data.forEach((product,index) => {
-		 $('._6wTCb6').append(`
+const layoutProductRandom = (data) => {
+    data.forEach((product, index) => {
+        $('._6wTCb6').append(`
 					     <div class="_4beVMw"><a
                         data-sqe="link"
                         href='/detail-product?k=${product.slug}'>
@@ -114,10 +113,10 @@ const layoutProductRandom =(data)=>{
                   </a></div>
 		
              `);
-		 	$('.j0vBz2'+product.id).text(product.price.toLocaleString('en-US', {style : 'currency', currency : 'VND'}))
+        $('.j0vBz2' + product.id).text(product.price.toLocaleString('en-US', {style: 'currency', currency: 'VND'}))
 
-	 })
-	  $('._6wTCb6').append(`
+    })
+    $('._6wTCb6').append(`
 	 <div class="qqV7Rl"><a
             class="btn btn-light btn--m btn--inline btn-light--link FA8aij"
             href="https://shopee.vn/daily_discover?pageNumber=2">Xem
@@ -125,8 +124,8 @@ const layoutProductRandom =(data)=>{
 		 `);
 }
 
-$(document).ready(function() {
-	callAjaxProductRandom()
+$(document).ready(function () {
+    callAjaxProductRandom()
 });
                                                             
                                                             

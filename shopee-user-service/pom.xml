@@ -62,11 +62,11 @@
 			<artifactId>spring-security-crypto</artifactId>
 			<version>6.0.1</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-			<version>3.1.4</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.cloud</groupId>-->
+<!--			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+<!--			<version>3.1.4</version>-->
+<!--		</dependency>-->
 	</dependencies>
 
 <!--	<dependencyManagement>-->
@@ -100,9 +100,5 @@
 			</plugin>
 		</plugins>
 	</build>
-<<<<<<< HEAD:shopee-account-service/pom.xml
-</project>
-=======
 
 </project>
->>>>>>> main:shopee-user-service/pom.xml
