@@ -1,13 +1,13 @@
-package com.org.shoppeorderservice;
+package com.org.discoveryservereureka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ShoppeOrderServiceApplication {
+public class ShopeeFeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ShoppeOrderServiceApplication.class, args);
+		SpringApplication.run(ShopeeFeApplication.class, args);
 	}
 
 }
