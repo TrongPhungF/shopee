@@ -11,7 +11,6 @@ public class UserMapper {
         user.setUserName(signUpRequest.getUserName());
         user.setPassword(signUpRequest.getPassword());
         user.setPhoneNumber(signUpRequest.getPhoneNumber());
-        user.setRole(signUpRequest.getRole());
         user.setFirstName(signUpRequest.getFirstName());
         user.setLastName(signUpRequest.getLastName());
         user.setEmail(signUpRequest.getEmail());

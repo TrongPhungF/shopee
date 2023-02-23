@@ -1,0 +1,31 @@
+services:
+
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:20.0.2
+    container_name: "shopee-keycloak-service"
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    ports:
+      - "8181:8080"
+    networks:
+      - backend
+    command:
+      - start-dev
+
+  rabbitmq:
+    image: "rabbitmq:3.11-manager"
+    container_name: "shopee-rabbitmq-service"
+    environment:
+      RABBITMQ_DEFAULT_USER: "rabbitmq"
+      RABBITMQ_DEFAULT_PASS: "123456"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge

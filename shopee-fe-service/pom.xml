@@ -49,7 +49,7 @@
 						</exclude>
 					</excludes>
 					<image>
-						<name>shopee/${project.artifactId}</name>
+						<name>phunghuynh/${project.artifactId}</name>
 					</image>
 				</configuration>
 			</plugin>
