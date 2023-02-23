@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.web.servlet.ModelAndView;
 
@@ -22,16 +23,16 @@ public class CartController {
         ProductDTO productDTO6 = new ProductDTO();
         productDTO6.setId(6);
         productDTO6.setName("Đầm");
-        productDTO6.setPrice(700000.0);
-        productDTO6.setQuantity(100);
+        productDTO6.setPrice(200000.0);
+        productDTO6.setQuantity(3);
         productDTO6.setUrlImg("https://cf.shopee.vn/file/4cb7898954c4dc291ef1ad30d820225e");
         productDTO6.setDesc("Đầm công chúa");
 
         ProductDTO productDTO7 = new ProductDTO();
         productDTO7.setId(7);
         productDTO7.setName("Váy");
-        productDTO7.setPrice(700000.0);
-        productDTO7.setQuantity(100);
+        productDTO7.setPrice(400000.0);
+        productDTO7.setQuantity(2);
         productDTO7.setUrlImg("https://cf.shopee.vn/file/4cb7898954c4dc291ef1ad30d820225e");
         productDTO7.setDesc("Đầm công chúa");
 
