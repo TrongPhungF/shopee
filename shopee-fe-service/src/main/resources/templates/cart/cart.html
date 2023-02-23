@@ -669,7 +669,7 @@
                                         <a
                                                 href="https://shopee.vn/Card-m%C3%A0n-h%C3%ACnh-Gigabyte-1660-Super-Gaming-6GB-c%C3%B3-3-Fan-c%C3%B3-Led-RGB-fullbox-gi%C3%A1-t%E1%BB%91t-!-i.140747811.2121366547?xptdk=b4487f66-f0e8-43b8-822e-845d6c648983"
 
-                                                title="${item.product.name}"
+                                                title="${product.name}"
                                         >
                                              <div
                                                 class="_3SWf-5" th:style="|background-image: url( ${product.urlImg});|"
@@ -721,7 +721,7 @@
                                             ></polygon>
                                         </svg>
                                         <!--                                                                             th:oninput="|maxvalue(${product.id},${product.quantity},${item.product.totalPriceSale},${item.product.price},${item.product.salePercent},${item.id})|" onkeypress="return isNumberKey(event)"-->
-                                                                      <input th:id="amount+${product.id}"
+                                                                      <input th:id="${product.id}"
                                                                         class="EcPhjV _3cj9Np"
 
                                                                         type="text"
@@ -937,7 +937,7 @@
                         <div class="_1TwgPm"></div>
                     </div>
                     <button class="shopee-button-solid shopee-button-solid--primary"
-                            onclick="ajaxPostDeliveryPayment()">
+                            >
                         <span class="kcsswk">Mua hàng</span>
                     </button>
                 </div>
@@ -1634,6 +1634,7 @@
         </div>
     </div>
 </div>
+<script th:src="@{/cart/js/payment.js}"></script>
 </body>
 <script th:inline="javascript" type="text/javascript">
     var shops = [[${products}]];
