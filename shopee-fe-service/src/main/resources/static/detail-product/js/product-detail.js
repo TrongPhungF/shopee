@@ -28,9 +28,9 @@ function raiseAmount() {
 
     let raise = parseInt(amount) + 1
 
-    if (raise >= product.quanitity) {
-        raise = product.quanitity
-    }
+    // if (raise >= product.quanitity) {
+    //     raise = product.quanitity
+    // }
     $('#amount').empty()
     $('#amount').val(raise)
 }

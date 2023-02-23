@@ -239,9 +239,9 @@
                                             <div class="flex flex-column">
                                                 <div class="flex flex-column _38g6so">
                                                     <div class="flex items-center">
-                                                        <div class="flex items-center _34BHKe" id="price">
-
+                                                        <div class="flex items-center _34BHKe" id="price" th:text="${product.price}+' '+₫" >
                                                         </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -352,15 +352,18 @@
                                                                                                         class="product-variation" aria-label="L&lt;68KG"
                                                                                                         aria-disabled="false">L&lt;68KG</button></div>
                                                                                       </div> -->
+                                                        <form th:action="@{/cart}"  th:method="post">
+                                                            <input type="hidden" th:value="${product.id}" th:name="id">
+                                                            <input type="hidden" th:value="${product.name}" th:name="name">
+                                                            <input type="hidden" th:value="${product.price}" th:name="price">
+                                                            <input type="hidden" th:value="${product.urlImg}" th:name="urlImg">
                                                         <div class="flex items-center _283ldj">
-
-                                                            <form th:action="@{/cart}"  th:method="post">
 
                                                             <div class="_34CHXV">Số lượng</div>
                                                             <div class="flex items-center">
                                                                 <div style="margin-right: 15px;">
                                                                     <div class="_1RTqoK shopee-input-quantity">
-                                                                        <button class="_1MGNbJ"
+                                                                        <button type="button" class="_1MGNbJ"
                                                                                 onclick="reduceAmount()">
                                                                             <svg
                                                                                     class="shopee-svg-icon"
@@ -370,12 +373,9 @@
                                                                                         points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
                                                                                 </polygon>
                                                                             </svg>
+                                                                        </button>
 
 
-                                                                        <input type="hidden" th:value="${product.id}" th:name="id">
-                                                                        <input type="hidden" th:value="${product.name}" th:name="name">
-                                                                        <input type="hidden" th:value="${product.price}" th:name="price">
-                                                                        <input type="hidden" th:value="${product.urlImg}" th:name="urlImg">
 
                                                                         <input
                                                                                 aria-valuenow="1" class="_1MGNbJ _1eS5m1"
@@ -385,7 +385,7 @@
 
                                                                                 th:value="1" th:name="quantity">
 
-                                                                        <button
+                                                                        <button type="button"
                                                                                 class="_1MGNbJ"
                                                                                 onclick="raiseAmount()">
                                                                             <svg
@@ -530,7 +530,7 @@
                                             <!--												</div>-->
                                             <div class="_2vnl9a _3-NFbD"><label class="_29u_kX" th>tỉ lệ phản
                                                 hồi</label><span class="_1i6OkT"
-                                                                 th:text="product.shop.responseRate"></span>&nbsp<span>%</span>
+                                                                 >99</span>&nbsp<span>%</span>
                                             </div>
                                             <div class="_2vnl9a _3-NFbD"><label class="_29u_kX">thời gian phản
                                                 hồi</label><span class="_1i6OkT">trong vài giờ</span></div>
@@ -546,10 +546,10 @@
                                         <div class="y0THZ0">
                                             <div class="_2vnl9a _3-NFbD"><label class="_29u_kX">tham
                                                 gia</label><span class="_1i6OkT"
-                                                                 th:text="product.shop.createdAt"></span></div>
+                                                                 >2020</span></div>
                                             <div class="_2vnl9a _3-NFbD"><label class="_29u_kX">Người theo
                                                 dõi</label><span class="_1i6OkT"
-                                                                 th:text="product.shop.followers">165</span></div>
+                                                                 >165</span></div>
                                         </div>
                                     </div>
                                 </div>

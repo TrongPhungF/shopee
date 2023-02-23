@@ -2241,9 +2241,8 @@
                                         <div class="stardust-tabs-panels">
                                             <section class="stardust-tabs-panels__panel" style="display: block;">
                                                 <div class="_6wTCb6" >
-                                                    <div class="_4beVMw" th:each="p : ${products} "><a
-                                                            data-sqe="link"
-                                                            href='/product?id=${p.id}'>
+                                                    <div class="_4beVMw" th:each="p : ${products} ">
+                                                        <a th:href="@{/product(id=${p.id})}">
                                                         <div class="yZLQT4">
                                                             <div
                                                                     class="uA1waf _4QQ4Ir">

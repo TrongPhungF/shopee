@@ -28,7 +28,7 @@ public class CartController {
         productDTO6.setDesc("Đầm công chúa");
 
         ProductDTO productDTO7 = new ProductDTO();
-        productDTO7.setId(6);
+        productDTO7.setId(7);
         productDTO7.setName("Váy");
         productDTO7.setPrice(700000.0);
         productDTO7.setQuantity(100);
@@ -40,16 +40,19 @@ public class CartController {
         products.add(productDTO7);
 
         ModelAndView  model = new ModelAndView("cart/cart.html");
-
+        model.addObject("total",productDTO6.getPrice()*productDTO6.getQuantity());
         model.addObject("products", products);
         return model;
     }
 
     @PostMapping (value = "/cart")
     public ModelAndView viewDashboardPost(@ModelAttribute("productDTO") ProductDTO productDTO) {
-
+        // hàm này sẽ chạy
+        List<ProductDTO> products = new ArrayList<>();
+        products.add(productDTO);
         ModelAndView  model = new ModelAndView("cart/cart.html");
-        model.addObject("product", productDTO);
+        model.addObject("total",productDTO.getPrice()*productDTO.getQuantity());
+        model.addObject("products", products);
 
         return model;
     }
