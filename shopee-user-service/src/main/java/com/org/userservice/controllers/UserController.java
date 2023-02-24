@@ -10,6 +10,8 @@ import org.keycloak.KeycloakPrincipal;
 import org.keycloak.KeycloakSecurityContext;
 import org.keycloak.representations.AccessToken;
 import org.keycloak.representations.AccessTokenResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -19,9 +21,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(value = "/api/v1")
+@RequestMapping(value = "/api/v1/auth")
 public class UserController {
 
+	private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 	private final UserService userService;
 
 	private final KeycloakService keycloakService;
@@ -29,10 +32,9 @@ public class UserController {
 	@PostMapping("/signup")
 	public ResponseEntity<?> signUpUser(@RequestBody SignUpRequest signUpRequest){
 
-//		LOGGER.info("UserController | signUpUser is started");
-//		LOGGER.info("UserController | signUpUser | SignUpRequest role : " + signUpRequest.getRole());
-//		LOGGER.info("UserController | signUpUser | SignUpRequest email : " + signUpRequest.getEmail());
-//		LOGGER.info("UserController | signUpUser | SignUpRequest name : " + signUpRequest.getUserName());
+		LOGGER.info("UserController | signUpUser is started");
+		LOGGER.info("UserController | signUpUser | SignUpRequest email : " + signUpRequest.getEmail());
+		LOGGER.info("UserController | signUpUser | SignUpRequest name : " + signUpRequest.getUserName());
 
 		return ResponseEntity.ok(userService.signUpUser(signUpRequest));
 	}
@@ -40,15 +42,15 @@ public class UserController {
 	@PostMapping("/login")
 	public ResponseEntity<AccessTokenResponse> login(@RequestBody LoginRequest request){
 
-		//LOGGER.info("UserController | login is started");
+		LOGGER.info("UserController | login is started");
 
 		AccessTokenResponse accessTokenResponse =keycloakService.loginWithKeycloak(request);
 		if (accessTokenResponse == null){
-			//LOGGER.info("UserController | login | Http Status Bad Request");
+			LOGGER.info("UserController | login | Http Status Bad Request");
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(accessTokenResponse);
 		}
 
-		//LOGGER.info("UserController | login | Http Status Ok");
+		LOGGER.info("UserController | login | Http Status Ok");
 
 		return ResponseEntity.ok(accessTokenResponse);
 	}
@@ -56,12 +58,13 @@ public class UserController {
 	@GetMapping("/info")
 	public ResponseEntity<String> infoUser(){
 
-		//LOGGER.info("UserController | infoUser is started");
+		LOGGER.info("UserController | infoUser is started");
 
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
-		//LOGGER.info("UserController | infoUser | auth toString : " + auth.toString());
-		//LOGGER.info("UserController | infoUser | auth getPrincipal : " + auth.getPrincipal());
+
+		LOGGER.info("UserController | infoUser | auth toString : " + auth.toString());
+		LOGGER.info("UserController | infoUser | auth getPrincipal : " + auth.getPrincipal());
 
 		KeycloakPrincipal principal = (KeycloakPrincipal)auth.getPrincipal();
 		KeycloakSecurityContext session = principal.getKeycloakSecurityContext();
@@ -80,39 +83,20 @@ public class UserController {
 				.findAny()
 				.orElse("noElement");
 
-//		LOGGER.info("UserController | infoUser | username : " + username);
-//		LOGGER.info("UserController | infoUser | email : " + email);
-//		LOGGER.info("UserController | infoUser | lastname : " + lastname);
-//		LOGGER.info("UserController | infoUser | firstname : " + firstname);
-//		LOGGER.info("UserController | infoUser | realmName : " + realmName);
-//		LOGGER.info("UserController | infoUser | firstRole : " + role);
+		LOGGER.info("UserController | infoUser | username : " + username);
+		LOGGER.info("UserController | infoUser | email : " + email);
+		LOGGER.info("UserController | infoUser | lastname : " + lastname);
+		LOGGER.info("UserController | infoUser | firstname : " + firstname);
+		LOGGER.info("UserController | infoUser | realmName : " + realmName);
+		LOGGER.info("UserController | infoUser | firstRole : " + role);
 
 		return ResponseEntity.ok(role);
 	}
+	@GetMapping("/hello")
+	public ResponseEntity<String> hello(){
+		return ResponseEntity.ok("Hello");
+	}
 
-////	private final UsersServiceConfig usersServiceConfig;
-//
-//	@PostMapping("/login")
-//	public UserDTO login(@RequestBody UserDTO user) {
-//		return  userService.loadUserByUsername(user);
-//	}
-//
-//	@GetMapping("/users")
-//	public List<UserDTO> getAllUserDTO() {
-//		return  userService.findAl();
-//	}
-//
-//	@PostMapping("/users")
-//	public void saveUser(@RequestBody UserDTO userDTO) {
-//		  userService.saveUser(userDTO);
-//	}
 
-//	@GetMapping("/users/properties")
-//	public String getPropertyDetails() throws JsonProcessingException {
-//		ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-//		Properties properties = new Properties(usersServiceConfig.getMsg(), usersServiceConfig.getBuildVersion(),
-//				usersServiceConfig.getMailDetails(), usersServiceConfig.getActiveBranches());
-//		String jsonStr = ow.writeValueAsString(properties);
-//		return jsonStr;
-//	}
+
 }

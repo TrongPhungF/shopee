@@ -1,6 +1,5 @@
 package com.org.userservice.dtos;
 
-import jakarta.persistence.Column;
 import lombok.Data;
 
 @Data
@@ -11,5 +10,6 @@ public class SignUpRequest {
     private String lastName;
     private String phoneNumber;
     private String email;
-    private String role;
+
+
 }
