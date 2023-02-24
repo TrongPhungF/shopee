@@ -1,5 +1,9 @@
 package com.org.shopeefe.controllers;
 
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import com.org.shopeefe.dtos.ProductDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,9 +15,26 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    @GetMapping(value = "/home",)
+    @GetMapping(value = {"/home","/"})
     public ModelAndView viewDashboard() {
         System.out.println("Đã vào controller");
+
+        String url = "https://jsonplaceholder.typicode.com/todos/1";
+
+        try {
+            HttpResponse<JsonNode> jsonResponse = Unirest.get(url)
+                    .header("accept", "application/json")
+                    .asJson();
+
+            int statusCode = jsonResponse.getStatus();
+            JsonNode responseBody = jsonResponse.getBody();
+
+            System.out.println("Status code: " + statusCode);
+            System.out.println("Response body: " + responseBody.toString());
+        } catch (UnirestException e) {
+            e.printStackTrace();
+        }
+
 
         List<ProductDTO> productDTOS = new ArrayList<>();
         ProductDTO productDTO1 = new ProductDTO();
