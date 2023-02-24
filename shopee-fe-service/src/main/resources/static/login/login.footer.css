@@ -133,8 +133,8 @@
     border-top: 1px solid rgba(0, 0, 0, .1)
 }
 
-@media (-webkit-min-device-pixel-ratio:2),
-(min-resolution:2dppx) {
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 2dppx) {
     .\-96EVm {
         border-top: .5px solid rgba(0, 0, 0, .1)
     }
@@ -162,8 +162,8 @@
     border-right: 1px solid rgba(0, 0, 0, .2)
 }
 
-@media (-webkit-min-device-pixel-ratio:2),
-(min-resolution:2dppx) {
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 2dppx) {
     .iDTkf9:not(:last-child) {
         border-right: .5px solid rgba(0, 0, 0, .2)
     }
