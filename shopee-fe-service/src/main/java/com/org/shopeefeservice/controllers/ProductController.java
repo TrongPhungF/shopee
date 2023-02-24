@@ -1,6 +1,6 @@
-package com.org.shopeefe.controllers;
+package com.org.shopeefeservice.controllers;
 
-import com.org.shopeefe.dtos.ProductDTO;
+import com.org.shopeefeservice.dtos.ProductDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

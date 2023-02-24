@@ -1,4 +1,4 @@
-package com.org.shopeefe.dtos;
+package com.org.shopeefeservice.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
