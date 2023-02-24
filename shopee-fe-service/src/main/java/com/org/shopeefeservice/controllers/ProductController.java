@@ -1,5 +1,12 @@
 package com.org.shopeefeservice.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import com.org.shopeefeservice.dtos.ProductDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,23 +17,35 @@ import org.springframework.web.servlet.ModelAndView;
 public class ProductController {
 
     @GetMapping(value = "/product")
-    public ModelAndView viewProductDetail(@RequestParam("id") Integer id) {
+    public ModelAndView viewProductDetail(@RequestParam("id") Integer id, ModelAndView model) {
         System.out.println("Đã vào controller Product");
 
-        ProductDTO productDTO6 = new ProductDTO();
-        productDTO6.setId(6);
-        productDTO6.setName("Đầm");
-        productDTO6.setPrice(700000.0);
-        productDTO6.setQuantity(100);
-        productDTO6.setUrlImg("https://cf.shopee.vn/file/4cb7898954c4dc291ef1ad30d820225e");
-        productDTO6.setDesc("Đầm công chúa");
+        String url = "http://localhost:9020/api/v1/products/"+id;
 
-//        ProductCustomize productCustomize = new ProductCustomize();
-//        productCustomize.setId(productDTO6.getId());
-//        productCustomize.setQuantity(1);
-        ModelAndView model = new ModelAndView("product-detail/detail-product.html");
-        model.addObject("product",productDTO6);
-       // model.addObject("productCustomize",productCustomize);
+        try {
+            HttpResponse<JsonNode> jsonResponse = Unirest.get(url)
+                    .header("accept", "application/json")
+                    .asJson();
+
+            int statusCode = jsonResponse.getStatus();
+            JsonNode responseBody = jsonResponse.getBody();
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            ProductDTO product = objectMapper.readValue(responseBody.toString(), ProductDTO.class);
+
+            model = new ModelAndView("product-detail/detail-product.html");
+            model.addObject("product",product);
+
+            System.out.println("Status code: " + statusCode);
+            System.out.println("Response body: " + responseBody.toString());
+        } catch (UnirestException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            throw new RuntimeException(e);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
 
         return model;
     }
