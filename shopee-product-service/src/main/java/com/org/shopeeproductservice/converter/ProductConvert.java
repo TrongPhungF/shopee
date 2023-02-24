@@ -33,7 +33,7 @@ public class ProductConvert {
 			product.setPrice(productDTO.getPrice());
 		}	
 		if(productDTO.getQuantity() !=null) {
-			product.setQuanitity(productDTO.getQuantity());
+			product.setQuantity(productDTO.getQuantity());
 		}	
 		if(productDTO.getDesc() !=null) {
 			product.setDesc(productDTO.getDesc());
