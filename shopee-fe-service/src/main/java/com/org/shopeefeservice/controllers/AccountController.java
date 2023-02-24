@@ -1,4 +1,4 @@
-package com.org.discoveryservereureka.controllers;
+package com.org.shopeefeservice.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

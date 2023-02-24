@@ -1,4 +1,4 @@
-package com.org.discoveryservereureka;
+package com.org.shopeefeservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
