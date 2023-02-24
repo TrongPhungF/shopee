@@ -8,4 +8,4 @@ MAINTAINER shopee
 COPY target/shopee-user-service-1.0.jar shopee-user-service-1.0.jar
 
 #execute the application
-ENTRYPOINT ["java","-jar","/shopee-userdo-service-1.0.jar"]
+ENTRYPOINT ["java","-jar","/shopee-user-service-1.0.jar"]

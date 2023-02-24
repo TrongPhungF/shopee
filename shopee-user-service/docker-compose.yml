@@ -3,7 +3,7 @@ version: "3.8"
 services:
 
   users:
-    image: shopee/shopee-user-service:latest
+    image: phunghuynh/shopee-user-service:latest
     mem_limit: 700m
     ports:
       - "9001:9001"
@@ -11,7 +11,7 @@ services:
       - shopee-network
 
   products:
-    image: shopee/shopee-product-service:latest
+    image: phunghuynh/shopee-product-service:latest
     mem_limit: 700m
     ports:
       - "9002:9002"
@@ -19,7 +19,7 @@ services:
       - shopee-network
 
   orders:
-      image: shopee/shopee-order-service:latest
+      image: phunghuynh/shopee-order-service:latest
       mem_limit: 700m
       ports:
         - "9003:9003"

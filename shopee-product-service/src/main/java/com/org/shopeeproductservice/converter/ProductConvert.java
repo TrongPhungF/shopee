@@ -32,8 +32,8 @@ public class ProductConvert {
 		if(productDTO.getPrice() !=null) {
 			product.setPrice(productDTO.getPrice());
 		}	
-		if(productDTO.getQuanitity() !=null) {
-			product.setQuanitity(productDTO.getQuanitity());
+		if(productDTO.getQuantity() !=null) {
+			product.setQuanitity(productDTO.getQuantity());
 		}	
 		if(productDTO.getDesc() !=null) {
 			product.setDesc(productDTO.getDesc());
