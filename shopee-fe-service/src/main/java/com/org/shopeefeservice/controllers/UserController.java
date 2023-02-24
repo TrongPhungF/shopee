@@ -1,17 +1,12 @@
-package com.org.shopeefe.controllers;
+package com.org.shopeefeservice.controllers;
 
 import com.org.shopeefe.dtos.UserDTO;
-import com.org.shopeefe.dtos.ProductDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
-import org.springframework.web.bind.annotation.ModelAttribute;
-
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Controller
