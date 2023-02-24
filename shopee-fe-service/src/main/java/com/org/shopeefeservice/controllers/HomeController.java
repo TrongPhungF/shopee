@@ -1,10 +1,10 @@
-package com.org.shopeefe.controllers;
+package com.org.shopeefeservice.controllers;
 
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import com.org.shopeefe.dtos.ProductDTO;
+import com.org.shopeefeservice.dtos.ProductDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
