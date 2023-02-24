@@ -2,16 +2,17 @@ package com.org.shopeeproductservice.controller;
 
 import com.org.shopeeproductservice.dtos.ProductDTO;
 import com.org.shopeeproductservice.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/v1/products")
+@RequiredArgsConstructor
 public class ProductController {
-	@Autowired
-	private ProductService productService;
+
+	private final ProductService productService;
 
 	@GetMapping(  "/hello")
 	public String test() {
