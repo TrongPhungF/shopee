@@ -42,6 +42,10 @@ public class RabbitMqConfig {
         return new Queue(queueName, true);
     }
 
+//    Direct Exchange: định tuyến tin nhắn đến queue dựa trên routing key. Exchange sẽ so sánh routing key của tin nhắn với routing key của hàng đợi để xác định địa chỉ đích của tin nhắn.
+//    Fanout Exchange: định tuyến tin nhắn đến tất cả các queue được liên kết với exchange.
+//    Topic Exchange: định tuyến tin nhắn đến hàng đợi tương ứng với pattern của routing key.
+//    Header Exchange: định tuyến tin nhắn dựa trên các thuộc tính của header.
     @Bean
     DirectExchange directExchange(){
         return new DirectExchange(topicExchangeName);
