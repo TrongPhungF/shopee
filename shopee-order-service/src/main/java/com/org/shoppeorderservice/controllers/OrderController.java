@@ -22,7 +22,15 @@ public class OrderController {
 
     @PostMapping
     public void order(@RequestBody List<OrderRequest> orderRequest) {
+        System.out.println("Da vao duoc order");
+        for (OrderRequest orderDTO : orderRequest) {
+            System.out.println(orderDTO.getIdProduct());
+            System.out.println(orderDTO.getPrice());
+            System.out.println(orderDTO.getQuantity());
+        }
         orderService.placeOrder(orderRequest);
+
+
     }
 //
 //    public CompletableFuture<String> fallbackMethod(OrderRequest orderRequest, RuntimeException runtimeException) {
