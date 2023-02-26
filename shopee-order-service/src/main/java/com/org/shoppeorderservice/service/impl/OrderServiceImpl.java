@@ -8,7 +8,7 @@ import com.org.shoppeorderservice.model.OrderLineItems;
 import com.org.shoppeorderservice.repository.OrderRepository;
 import com.org.shoppeorderservice.service.MessageService;
 import com.org.shoppeorderservice.service.OrderService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,13 +17,16 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
-    private final OrderRepository orderRepository;
+    private  OrderRepository orderRepository;
+    private  MessageService messageService;
 
-
-    private final MessageService messageService;
+    @Autowired
+   public void OrderServiceImpl(OrderRepository orderRepository, MessageService messageService) {
+        this.orderRepository = orderRepository;
+        this.messageService = messageService;
+    }
 
     @Override
     public void placeOrder(List<OrderRequest> orderRequest) {
@@ -57,6 +60,13 @@ public class OrderServiceImpl implements OrderService {
                 messageService.checkProductIsInventory(requestProductCheckInventory);
 
 
+    }
+
+    @Override
+    public void updateOrderStatus(String orderNumber, String status) {
+        Order order = orderRepository.findByOrderNumber(orderNumber);
+        order.setOrderStatus(status);
+        orderRepository.save(order);
     }
 
 //    private OrderLineItems mapToDto(OrderLineItemsDto orderLineItemsDto) {

@@ -8,4 +8,5 @@ import java.util.List;
 public interface OrderService {
 
     void placeOrder(List<OrderRequest> orderRequest);
+    void updateOrderStatus(String orderNumber, String status);
 }
