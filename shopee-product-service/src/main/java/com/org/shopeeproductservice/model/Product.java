@@ -1,18 +1,12 @@
 package com.org.shopeeproductservice.model;
 
-import java.io.Serializable;
-
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.io.Serializable;
 
 @Getter
 @Setter
@@ -36,7 +30,7 @@ public class Product implements Serializable {
 	private String desc;
 
 	@Column(name = "product_quanitity", nullable = true)
-	private Integer quanitity;
+	private Integer quantity;
 
 	@Column(name = "product_price")
 	private Double price;

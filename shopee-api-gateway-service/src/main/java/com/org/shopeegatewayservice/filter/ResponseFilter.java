@@ -1,8 +1,7 @@
 package com.org.shopeegatewayservice.filter;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,12 +9,10 @@ import org.springframework.http.HttpHeaders;
 import reactor.core.publisher.Mono;
 
 @Configuration
+@RequiredArgsConstructor
+@Log4j2
 public class ResponseFilter {
-
-    private final Logger LOGGER = LoggerFactory.getLogger(getClass());
-
-    @Autowired
-    private FilterUtils filterUtils;
+    private final FilterUtils filterUtils;
 
     @Bean
     public GlobalFilter postGlobalFilter() {
@@ -23,9 +20,9 @@ public class ResponseFilter {
             return chain.filter(exchange).then(Mono.fromRunnable(() -> {
                 HttpHeaders requestHeaders = exchange.getRequest().getHeaders();
                 String correlationId = filterUtils.getCorrelationId(requestHeaders);
-                LOGGER.info("API Gateway | ResponseFilter | postGlobalFilter | Adding the correlation id to the outbound headers. {}", correlationId);
+                log.info("API Gateway | ResponseFilter | postGlobalFilter | Adding the correlation id to the outbound headers. {}", correlationId);
                 exchange.getResponse().getHeaders().add(FilterUtils.CORRELATION_ID, correlationId);
-                LOGGER.info("API Gateway | ResponseFilter | postGlobalFilter | Completing outgoing request for {}.", exchange.getRequest().getURI());
+                log.info("API Gateway | ResponseFilter | postGlobalFilter | Completing outgoing request for {}.", exchange.getRequest().getURI());
             }));
         };
     }
