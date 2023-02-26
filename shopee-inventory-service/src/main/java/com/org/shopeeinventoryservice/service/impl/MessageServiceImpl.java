@@ -38,7 +38,7 @@ public class MessageServiceImpl implements MessageService{
 
     @Override
     public void sendMessage(InventoryResponse inventoryResponse){
-        rabbitTemplate.convertAndSend(queue.getName(), inventoryResponse);
+        rabbitTemplate.convertAndSend("shopee-queue-orders", inventoryResponse);
     }
 
 
