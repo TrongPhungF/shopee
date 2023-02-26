@@ -45,19 +45,19 @@ public class OrderServiceImpl implements OrderService {
         order.setOrderStatus("PENDING");
         orderRepository.save(order);
 
-        RequestProductCheckInventory requestProductCheckInventory = new RequestProductCheckInventory();
-        requestProductCheckInventory.setOrderNumber(order.getOrderNumber());
-
-        requestProductCheckInventory.setResponseResulCheckInventory(
-                orderLineItems.stream().map(
-                orderLineItems1 -> {
-                    ProductCheckInventory productCheckInventory = new ProductCheckInventory();
-                    productCheckInventory.setIdProduct(orderLineItems1.getIdProduct());
-                    productCheckInventory.setQuantity(orderLineItems1.getQuantity());
-                    return productCheckInventory;
-                }
-                ).collect(Collectors.toList()));
-                messageService.checkProductIsInventory(requestProductCheckInventory);
+//        RequestProductCheckInventory requestProductCheckInventory = new RequestProductCheckInventory();
+//        requestProductCheckInventory.setOrderNumber(order.getOrderNumber());
+//
+//        requestProductCheckInventory.setResponseResulCheckInventory(
+//                orderLineItems.stream().map(
+//                orderLineItems1 -> {
+//                    ProductCheckInventory productCheckInventory = new ProductCheckInventory();
+//                    productCheckInventory.setIdProduct(orderLineItems1.getIdProduct());
+//                    productCheckInventory.setQuantity(orderLineItems1.getQuantity());
+//                    return productCheckInventory;
+//                }
+//                ).collect(Collectors.toList()));
+//                messageService.checkProductIsInventory(requestProductCheckInventory);
 
 
     }

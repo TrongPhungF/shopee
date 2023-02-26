@@ -17,10 +17,9 @@ btn.addEventListener('click', () => {
 
       // Tạo một object mới chứa giá trị vừa lấy
       var product = {
-        id: id,
+        idProduct: id,
         price: price,
-        quantity: quantity,
-        total: total
+        quantity: quantity
       };
 
       // Thêm object vào mảng
