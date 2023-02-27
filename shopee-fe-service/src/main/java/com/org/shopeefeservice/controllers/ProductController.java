@@ -20,7 +20,7 @@ public class ProductController {
     public ModelAndView viewProductDetail(@RequestParam("id") Integer id, ModelAndView model) {
         System.out.println("Đã vào controller Product");
 
-        String url = "http://localhost:9020/api/v1/products/"+id;
+        String url = "http://localhost:8600/api/v1/products/"+id;
 
         try {
             HttpResponse<JsonNode> jsonResponse = Unirest.get(url)
