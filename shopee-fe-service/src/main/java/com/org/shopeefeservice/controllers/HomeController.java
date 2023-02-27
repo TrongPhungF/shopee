@@ -19,7 +19,7 @@ public class HomeController {
     public ModelAndView viewDashboard(ModelAndView model) {
         System.out.println("Đã vào controller");
 
-        String url = "http://localhost:9020/api/v1/products";
+        String url = "http://localhost:8600/api/v1/products";
 
         try {
             HttpResponse<JsonNode> jsonResponse = Unirest.get(url)
