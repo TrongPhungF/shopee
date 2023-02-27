@@ -40,6 +40,13 @@ public class RabbitMqConfig {
     @Value("${spring.rabbitmq.password}")
     private String rabbitMQPassword;
 
+    public static final String QUEUE_DLQ_EXAMPLE = "q.error-handling-demo.dlx-dlq-example";
+    public static final String DL_QUEUE_DLQ_EXAMPLE = "q.error-handling-demo.dlx-dlq-example.dlq";
+    public static final String EXCHANGE_DLX_EXAMPLE = "x.error-handling-demo.dlx-dlq-example";
+    public static final String DL_EXCHANGE_DLX_EXAMPLE = "x.error-handling-demo.dlx-dlq-example.dlx";
+    public static final String DL_ROUTING_KEY_ORIGINAL = "dlx-before";
+    public static final String DL_ROUTING_KEY_DLQ_OVERRIDDEN = "dlx-after";
+
     @Bean
     public Queue queue() {
         return new Queue(queueName, true);
